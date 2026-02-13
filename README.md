@@ -107,7 +107,8 @@ sudo cp systemd/nanobot-agent@.service /etc/systemd/system/
 sudo cp systemd/nanobot-bridge@.service /etc/systemd/system/
 sudo systemctl daemon-reload
 
-# Start services (replace $(whoami) if needed)
+# Start services (replace $(whoami) if needed). The agent unit runs `nanobot gateway`
+# (non-interactive) and will fall back to ~/nanoBot_memU + ~/nanobot-venv if paths are not set.
 sudo systemctl enable --now nanobot-agent@$(whoami)
 sudo systemctl enable --now nanobot-bridge@$(whoami)
 ```
