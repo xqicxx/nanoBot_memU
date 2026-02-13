@@ -1,0 +1,12 @@
+[submodule "memU_test"]
+	path = memU_test
+	url = https://github.com/xqicxx/memU_test.git
+
+[submodule "nanobot"]
+	path = nanobot
+	url = https://github.com/xqicxx/nanobot_create.git
+
+[submodule "nanobot_bakup"]
+	path = nanobot_bakup
+	url = https://github.com/xqicxx/nanobot_create.git
+
