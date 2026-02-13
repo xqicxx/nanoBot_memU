@@ -1,0 +1,15 @@
+[Unit]
+Description=NanoBot Agent
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+EnvironmentFile=/etc/nanobot/nanobot.env
+ExecStart=/bin/bash -lc 'cd "${NANOBOT_REPO}" && "${NANOBOT_VENV}/bin/nanobot" agent'
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,16 @@
+[Unit]
+Description=NanoBot WhatsApp Bridge (Baileys)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+EnvironmentFile=/etc/nanobot/nanobot.env
+Environment=NODE_ENV=production
+ExecStart=/bin/bash -lc 'cd "${NANOBOT_REPO}/nanobot/bridge" && /usr/bin/npm run start'
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
