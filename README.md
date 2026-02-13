@@ -70,6 +70,10 @@ export SILICONFLOW_API_KEY="REPLACE_ME"
 export SILICONFLOW_BASE_URL="https://api.siliconflow.cn/v1"
 export SILICONFLOW_EMBED_MODEL="BAAI/bge-m3"
 
+# WhatsApp Bridge behavior (optional; defaults to 1 in bridge code)
+export WA_MARK_ONLINE="1"
+export WA_AUTO_READ="1"
+
 # Optional: MemU DB DSN (defaults to sqlite at workspace/.memu/memu.db)
 export MEMU_DB_DSN="sqlite:////opt/nanobot-data/memu.db"
 EOF

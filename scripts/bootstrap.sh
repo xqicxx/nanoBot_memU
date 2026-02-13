@@ -13,6 +13,8 @@ export SILICONFLOW_API_KEY="${SILICONFLOW_API_KEY:-}"
 export SILICONFLOW_BASE_URL="${SILICONFLOW_BASE_URL:-https://api.siliconflow.cn/v1}"
 export SILICONFLOW_EMBED_MODEL="${SILICONFLOW_EMBED_MODEL:-BAAI/bge-m3}"
 export SILICONFLOW_CLIENT_BACKEND="${SILICONFLOW_CLIENT_BACKEND:-sdk}"
+export WA_MARK_ONLINE="${WA_MARK_ONLINE:-1}"
+export WA_AUTO_READ="${WA_AUTO_READ:-1}"
 
 if [[ -z "${MINIMAX_API_KEY}" ]]; then
   echo "ERROR: MINIMAX_API_KEY is required."
@@ -81,6 +83,8 @@ if ! grep -q "${marker_begin}" "${bashrc}" 2>/dev/null; then
   printf -v sf_base_esc %q "${SILICONFLOW_BASE_URL}"
   printf -v sf_model_esc %q "${SILICONFLOW_EMBED_MODEL}"
   printf -v sf_backend_esc %q "${SILICONFLOW_CLIENT_BACKEND}"
+  printf -v wa_online_esc %q "${WA_MARK_ONLINE}"
+  printf -v wa_read_esc %q "${WA_AUTO_READ}"
   {
     echo ""
     echo "${marker_begin}"
@@ -98,6 +102,8 @@ if ! grep -q "${marker_begin}" "${bashrc}" 2>/dev/null; then
       echo "export SILICONFLOW_EMBED_MODEL=${sf_model_esc}"
       echo "export SILICONFLOW_CLIENT_BACKEND=${sf_backend_esc}"
     fi
+    echo "export WA_MARK_ONLINE=${wa_online_esc}"
+    echo "export WA_AUTO_READ=${wa_read_esc}"
     echo "export MEMU_DB_DSN=${dsn_esc}"
     echo "${marker_end}"
   } >> "${bashrc}"
