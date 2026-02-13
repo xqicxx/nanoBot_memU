@@ -51,6 +51,40 @@ This writes:
 - `~/.bashrc` env block with `MINIMAX_API_KEY`, `MINIMAX_API_BASE`, `MEMU_DB_DSN`
 - If provided, it also persists MemU keys for DeepSeek (LLM) and SiliconFlow (embeddings)
 
+## Config.json (No Env for MemU)
+
+You can keep **all MemU settings in `~/.nanobot/config.json`** (no env required). Example:
+
+```json
+{
+  "agents": { "defaults": { "model": "minimax/MiniMax-M2.1" } },
+  "providers": {
+    "minimax": { "apiKey": "REPLACE_ME", "apiBase": "https://api.minimax.io/v1" }
+  },
+  "channels": {
+    "whatsapp": { "enabled": true, "bridgeUrl": "ws://localhost:3001", "allowFrom": [] }
+  },
+  "memu": {
+    "enabled": true,
+    "dbDsn": "sqlite:////root/.nanobot/workspace/.memu/memu.db",
+    "default": {
+      "provider": "openai",
+      "baseUrl": "https://api.deepseek.com/v1",
+      "apiKey": "REPLACE_ME",
+      "chatModel": "deepseek-chat",
+      "clientBackend": "sdk"
+    },
+    "embedding": {
+      "provider": "openai",
+      "baseUrl": "https://api.siliconflow.cn/v1",
+      "apiKey": "REPLACE_ME",
+      "embedModel": "BAAI/bge-m3",
+      "clientBackend": "sdk"
+    }
+  }
+}
+```
+
 ## Persistent Environment Variables (bash)
 
 Put your API keys/model endpoints in `~/.bashrc` so they persist across sessions:
