@@ -47,7 +47,7 @@ bash scripts/bootstrap.sh
 ```
 
 This writes:
-- `~/.nanobot/config.json` with default model `minimax/MiniMax-M2.1`
+- `~/.nanobot/config.json` with default model `minimax/MiniMax-M2.5`
 - `~/.bashrc` env block with `MINIMAX_API_KEY`, `MINIMAX_API_BASE`, `MEMU_DB_DSN`
 - If provided, it also persists MemU keys for DeepSeek (LLM) and SiliconFlow (embeddings)
 
@@ -57,9 +57,9 @@ You can keep **all MemU settings in `~/.nanobot/config.json`** (no env required)
 
 ```json
 {
-  "agents": { "defaults": { "model": "minimax/MiniMax-M2.1" } },
+  "agents": { "defaults": { "model": "minimax/MiniMax-M2.5" } },
   "providers": {
-    "minimax": { "apiKey": "REPLACE_ME", "apiBase": "https://api.minimax.io/v1" }
+    "minimax": { "apiKey": "REPLACE_ME", "apiBase": "https://api.minimaxi.com/v1" }
   },
   "channels": {
     "whatsapp": { "enabled": true, "bridgeUrl": "ws://localhost:3001", "allowFrom": [] }
@@ -94,7 +94,7 @@ cat <<'EOF' >> ~/.bashrc
 
 # NanoBot / MemU
 export MINIMAX_API_KEY="REPLACE_ME"
-export MINIMAX_API_BASE="https://api.minimax.io/v1"
+export MINIMAX_API_BASE="https://api.minimaxi.com/v1"
 
 export DEEPSEEK_API_KEY="REPLACE_ME"
 export DEEPSEEK_BASE_URL="https://api.deepseek.com/v1"
